@@ -1,0 +1,31 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+      
+  cafe-db:
+    build:
+      context: ./cafe-mongodb
+      dockerfile: Dockerfile
+    depends_on:
+      - mongodb
+
+  cafe-app:
+    build:
+      context: ./cafe-react
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+
+  cafe-api:
+    build:
+      context: ./cafe-api
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+    depends_on:
+      - mongodb

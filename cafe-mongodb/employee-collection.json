@@ -1,0 +1,9 @@
+{
+  "id": "UIXXXXXXX",
+  "name": "John Doe",
+  "email_address": "john.doe@example.com",
+  "phone_number": "91234567",
+  "gender": "Male",
+  "cafe_id": "UUID",
+  "start_date": "YYYY-MM-DD"
+}

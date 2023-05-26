@@ -1,0 +1,30 @@
+# Packages pulled down from NPM/Yarn
+node_modules
+cafe-mongodb/node_modules
+cafe-api/node_modules
+cafe-react/node_modules
+
+# Log files
+*.log
+ 
+# Local DB
+.db
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+
+# Env files
+.env
+
+# We don't want any of the dist files going into git repo...
+cafe-mongodb/build
+cafe-mongodb/.next
+cafe-api/build
+cafe-api/.next
+cafe-react/build
+cafe-react/.next
+
+# We don't want the api spec in git... That should be generated on the fly as part of the build...
+openapi.json
