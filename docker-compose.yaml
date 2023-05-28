@@ -1,31 +1,66 @@
 version: '3'
 services:
-  mongodb:
-    image: mongo
+  mysql:
+    image: mysql:latest
+    container_name: cafe-mysql
+    restart: always
+    expose:
+      - 3306
     ports:
-      - 27017:27017
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=cafe_database
+      - MYSQL_DATABASE_USERNAME=db_admin
+      - MYSQL_DATABASE_PASSWORD=db_password
+    networks:
+      - cafe-network
+
       
-  cafe-db:
+  cafe-migration:
+    container_name: cafe-migration
     build:
-      context: ./cafe-mongodb
+      context: ./cafe-migration
       dockerfile: Dockerfile
+    expose:
+      - 3088
+    ports:
+        - 3088:3088
+
     depends_on:
-      - mongodb
+      - mysql
 
   cafe-app:
+    container_name: cafe-app
     build:
       context: ./cafe-react
       dockerfile: Dockerfile
-    ports:
-      - 3000:3000
-    depends_on:
-      - mongodb
-
-  cafe-api:
-    build:
-      context: ./cafe-api
-      dockerfile: Dockerfile
+    expose:
+      - 3001
     ports:
       - 3001:3001
     depends_on:
-      - mongodb
+      - mysql
+
+  cafe-api:
+    container_name: cafe-api
+    build:
+      context: ./cafe-api
+      dockerfile: Dockerfile
+    expose:
+      - 3002
+    ports:
+      - 3002:3002
+    networks:
+      - cafe-network
+    depends_on:
+      - mysql
+
+networks:   
+  cafe-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
