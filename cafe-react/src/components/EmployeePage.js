@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AgGridReact } from 'ag-grid-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import _ from 'lodash';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import '../assets/css/CafePage.css'
@@ -14,13 +15,27 @@ const EmployeePage = () => {
     const location = useLocation();
     const employees = useSelector((state) => state.cafeStore.employees);
     const cafes = useSelector((state) => state.cafeStore.cafe);
+    const employeeCafes = useSelector((state) => state.cafeStore.employeeCafes)
 
     const columnDefs = [
         { headerName: 'Employee Id', field: 'employee_id' },
         { headerName: 'Name', field: 'name' },
         { headerName: 'Email Address', field: 'email_address' },
         { headerName: 'Phone Number', field: 'phone_number' },
-        { headerName: 'Days worked in the cafe', field: 'days_worked' },
+        { 
+          headerName: 'Days worked in the cafe', 
+          field: 'days_worked',
+          valueGetter: (params) =>{
+            const employeeId = params?.data?.employee_id
+            const employeeCafe = employeeCafes.find((employeeCafe) => employeeCafe.employee_id === employeeId);
+            const hiredDate = new Date(employeeCafe?.start_date);
+            const currentDate = new Date();
+            const timeDiff = Math.abs(currentDate.getTime() - hiredDate.getTime());
+            const daysWorked = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            return daysWorked? daysWorked : '';
+          },
+          cellStyle: { textAlign: 'center' }
+        },
         { 
           headerName: 'Cafe Name', 
           field: 'cafe_id',

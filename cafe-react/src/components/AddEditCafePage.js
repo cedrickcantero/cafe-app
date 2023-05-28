@@ -89,8 +89,6 @@ const AddEditCafePage = (props) => {
     };
 
     const handleSubmit = (event) => {
-
-        console.log("actionType",actionType)
         event.preventDefault();
         if(actionType === 'add'){
             cafe.id = (`Cl${largestId+1}`).toString();

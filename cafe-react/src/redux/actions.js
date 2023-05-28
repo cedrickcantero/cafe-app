@@ -137,7 +137,6 @@ export const fetchEmployees = () => {
 
 // Thunk action creator for adding an employee
 export const addEmployee = (employee) => {
-  console.log("employee Data", employee)
   return async (dispatch) => {
     try {
       const response = await axios.post('http://localhost:3002/employees/employee', employee);
@@ -150,7 +149,6 @@ export const addEmployee = (employee) => {
 
 // Thunk action creator for editing a an employee
 export const editEmployee = (employeeData) => {
-  console.log("employeeData", employeeData)
   return async (dispatch) => {
     try {
       const response = await axios.put(`http://localhost:3002/employees/employee/${employeeData.id}`, employeeData);

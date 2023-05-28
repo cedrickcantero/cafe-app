@@ -32,8 +32,6 @@ cafeController.createCafe = (req, res) => {
 cafeController.updateCafe = (req, res) => {
   const { id } = req.params;
   const { name, description, logo, location } = req.body;
-  console.log("req.body", req.body)
-  console.log("req.params", req.params)
 
   Cafe.updateCafe(id, { name, description, logo, location }, (error, updatedCafe) => {
     if (error) {

@@ -15,7 +15,6 @@ const App = () => {
       dispatch(fetchCafes())
       dispatch(fetchEmployees())
       dispatch(fetchEmployeesCafe())
-      console.log("initial state", initialState)
   }, []);
   
   return (

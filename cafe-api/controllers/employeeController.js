@@ -81,8 +81,6 @@ employeeController.deleteEmployee = (req, res) => {
 // Controller function to delete an employee by cafe id
 employeeController.deleteByCafeId  = (req, res) => {
   const { cafeId } = req.params;
-  console.log("req.params", req.params)
-  console.log("cafeId", cafeId)
 
   Employee.deleteByCafeId(cafeId, (error) => {
     if (error) {

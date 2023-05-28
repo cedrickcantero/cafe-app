@@ -61,7 +61,6 @@ const AddEditEmployeePage = () => {
 
   useEffect(() => {
     // Fetch the existing employee data if editing
-    console.log("getRowDataState", getRowDataState);
     if (getRowDataState) {
       setName(getRowDataState.name);
       setEmail(getRowDataState.email_address);
