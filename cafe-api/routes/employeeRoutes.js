@@ -9,6 +9,7 @@ router.get('/employees', employeeController.getAllEmployees);
 router.post('/employee', employeeController.createEmployee);
 router.put('/employee/:id', employeeController.updateEmployee);
 router.delete('/employee/:id', employeeController.deleteEmployee);
+router.delete('/employee/cafe/:cafeId', employeeController.deleteByCafeId);
 
 // Export the router
 module.exports = router;

@@ -1,17 +1,17 @@
 -- 2_insert_data.sql
 
-INSERT INTO Employee (id, name, email_address, phone_number, gender)
+INSERT INTO Employee (id, name, email_address, phone_number, gender,cafe_id)
 VALUES
-  ('UI1000001', 'John Doe', 'johndoe@example.com', '91234567', 'Male'),
-  ('UI1000002', 'Jane Smith', 'janesmith@example.com', '81234567', 'Female'),
-  ('UI1000003', 'Lebron James', 'lebronjames@example.com', '81234568', 'Male'),
-  ('UI1000004', 'Stephen Curry', 'stephencurry@example.com', '81234569', 'Male'),
-  ('UI1000005', 'Kobe Bryant', 'kobebryant@example.com', '81234557', 'Male'),
-  ('UI1000006', 'Chris Evans', 'chrisevans@example.com', '81234547', 'Male'),
-  ('UI1000007', 'Tom Hardy', 'tomhhardy@example.com', '81234537', 'Male'),
-  ('UI1000008', 'Tom Holland', 'tomholland@example.com', '81234527', 'Male'),
-  ('UI1000009', 'Yona Carter', 'jamescarter@example.com', '81234517', 'Female'),
-  ('UI1000010', 'Jeep Smith', 'marksmith@example.com', '81234507', 'Female');
+  ('UI1000001', 'John Doe', 'johndoe@example.com', '91234567', 'Male', 'CI1000001'),
+  ('UI1000002', 'Jane Smith', 'janesmith@example.com', '81234567', 'Female', 'CI1000002'),
+  ('UI1000003', 'Lebron James', 'lebronjames@example.com', '81234568', 'Male', 'CI1000003'),
+  ('UI1000004', 'Stephen Curry', 'stephencurry@example.com', '81234569', 'Male', 'CI1000004'),
+  ('UI1000005', 'Kobe Bryant', 'kobebryant@example.com', '81234557', 'Male', 'CI1000005'),
+  ('UI1000006', 'Chris Evans', 'chrisevans@example.com', '81234547', 'Male', 'CI1000006'),
+  ('UI1000007', 'Tom Hardy', 'tomhhardy@example.com', '81234537', 'Male', 'CI1000007'),
+  ('UI1000008', 'Tom Holland', 'tomholland@example.com', '81234527', 'Male', 'CI1000008'),
+  ('UI1000009', 'Yona Carter', 'jamescarter@example.com', '81234517', 'Female', 'CI1000009'),
+  ('UI1000010', 'Jeep Smith', 'marksmith@example.com', '81234507', 'Female','CI1000010');
 
 -- Insert data into the Cafe table
 INSERT INTO Cafe (id, name, description, location)

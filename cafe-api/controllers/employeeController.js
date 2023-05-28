@@ -18,10 +18,11 @@ employeeController.getAllEmployees = (req, res) => {
 
 // Controller function to create a new employee
 employeeController.createEmployee = (req, res) => {
-  const { id, name, email_address, phone_number, gender, cafe_id, start_date } = req.body;
+  const { id, name, email_address, phone_number, gender, cafe_id } = req.body;
+  const start_date = new Date(); // Get the current date
 
   // Create the employee
-  Employee.createEmployee({ id, name, email_address, phone_number, gender }, (error, newEmployee) => {
+  Employee.createEmployee({id, name, email_address, phone_number, gender, cafe_id, start_date }, (error, newEmployee) => {
     if (error) {
       res.status(500).json({ error: 'Internal server error' });
       return;
@@ -42,9 +43,10 @@ employeeController.createEmployee = (req, res) => {
 // Controller function to update the details of an employee
 employeeController.updateEmployee = (req, res) => {
   const { id } = req.params;
-  const { name, email_address, phone_number, gender, cafe_id, start_date } = req.body;
+  const { name, email_address, phone_number, gender, cafe_id } = req.body;
+  const start_date = new Date(); 
 
-  Employee.updateEmployee(id, { name, email_address, phone_number, gender }, (error, updatedEmployee) => {
+  Employee.updateEmployee(id, { name, email_address, phone_number, gender, cafe_id }, (error, updatedEmployee) => {
     if (error) {
       res.status(500).json({ error: 'Internal server error' });
       return;
@@ -73,6 +75,22 @@ employeeController.deleteEmployee = (req, res) => {
     }
 
     res.status(200).json({ message: 'Employee deleted successfully' });
+  });
+};
+
+// Controller function to delete an employee by cafe id
+employeeController.deleteByCafeId  = (req, res) => {
+  const { cafeId } = req.params;
+  console.log("req.params", req.params)
+  console.log("cafeId", cafeId)
+
+  Employee.deleteByCafeId(cafeId, (error) => {
+    if (error) {
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+
+    res.status(200).json({ message: 'Employee deleted successfully by Cafe Id' });
   });
 };
 

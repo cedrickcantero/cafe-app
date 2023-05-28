@@ -15,7 +15,6 @@ Cafe.getAllCafes = async (location, callback) => {
 
   try {
     const [results, fields] = await pool.execute(query);
-    console.log('Results:', results);
     callback(null, results);
   } catch (error) {
     console.error('Error executing the query:', error);

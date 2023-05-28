@@ -1,0 +1,19 @@
+.filter-add-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .filter-add-container input {
+    /* flex: 1; */
+    flex-direction: column;
+    margin-right: 10px;
+    width:20%
+  }
+
+  .filter-add-container button {
+    /* flex: 1; */
+    flex-direction: column;
+    margin-right: 10px;
+    width:10%
+  }

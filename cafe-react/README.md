@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Getting Started with Cafe Management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Clone first the [https://github.com/cedrickcantero/cafe-app](https://github.com/cedrickcantero/cafe-app)
+
+Then Move to the parent directory
+cd cafe-app
+Then run Docker
 
 ## Available Scripts
 

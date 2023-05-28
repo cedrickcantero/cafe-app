@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import { fetchCafes, fetchEmployees, fetchEmployeesCafe } from './redux/actions';
+import store from './redux/store';
+import RouterComponent from './RouterComponent';
+import Layout from './components/common/Layout';
 import './App.css';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  const initialState = useSelector((state) => state);
+
+
+  useEffect(() => {
+      dispatch(fetchCafes())
+      dispatch(fetchEmployees())
+      dispatch(fetchEmployeesCafe())
+      console.log("initial state", initialState)
+  }, []);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Layout>
+        <RouterComponent />
+      </Layout>
+    </Provider>
   );
 }
 
