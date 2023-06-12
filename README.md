@@ -32,7 +32,7 @@ Before you begin, ensure that you have the following prerequisites installed on 
    ```shell
    docker-compose up -d --build
 
-If you are running the cafe-api using npm run start change the host setting in mysql.js
+   If you are running the cafe-api using npm run start change the host setting in mysql.js and on windows machine or mac
 ![image](https://github.com/cedrickcantero/cafe-app/assets/32406846/cbca14e0-4df4-42f3-9160-e80c811f7204)
 
 
