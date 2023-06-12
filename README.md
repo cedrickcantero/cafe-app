@@ -32,8 +32,15 @@ Before you begin, ensure that you have the following prerequisites installed on 
    ```shell
    docker-compose up -d --build
 
-   If you are running the cafe-api using npm run start change the host setting in mysql.js and on windows machine or mac
-![image](https://github.com/cedrickcantero/cafe-app/assets/32406846/cbca14e0-4df4-42f3-9160-e80c811f7204)
+  If you are running the cafe-api using npm run start change the host setting in mysql.js and on windows machine or mac
+      ![image](https://github.com/cedrickcantero/cafe-app/assets/32406846/cbca14e0-4df4-42f3-9160-e80c811f7204)
+
+  If you are running the cafe-api using npm run start and on linux you can follow these steps
+      1. ifconfig
+      2. ip addr show
+      3. The IP address may appear as 192.168.x.x, 172.17.x.x, or something similar. Once located put it on the host settings
+   *Note I haven't tested this yet as I don't have any linux machine
+      
 
 
 4. Once everrything is successful your docker container should look like this
