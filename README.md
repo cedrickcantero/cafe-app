@@ -32,6 +32,10 @@ Before you begin, ensure that you have the following prerequisites installed on 
    ```shell
    docker-compose up -d --build
 
+If you are running the cafe-api using npm run start change the host setting in mysql.js
+![image](https://github.com/cedrickcantero/cafe-app/assets/32406846/cbca14e0-4df4-42f3-9160-e80c811f7204)
+
+
 4. Once everrything is successful your docker container should look like this
 ![image](https://github.com/cedrickcantero/cafe-app/assets/32406846/01c2dfdc-f50c-4086-8fb7-5c3ebf9694bf)
 
