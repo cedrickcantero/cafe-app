@@ -3,6 +3,7 @@ const mysql = require('mysql2');
 // Create a MySQL connection pool
 const pool = mysql.createPool({
   host: 'cafe-mysql',
+  // host: 'host.docker.internal', /*Uncomment this code line if you are running the nodejs server using npm run start and not in docker*/ 
   user: 'root',
   password: 'password',
   database: 'cafe_database',
